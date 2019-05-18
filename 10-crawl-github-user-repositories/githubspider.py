@@ -7,7 +7,11 @@ class GithubSpider(scrapy.Spider):
 
     @property
     def start_urls(self):
-        return ('https://github.com/shiyanlou?tab=repositories', )
+        return ('https://github.com/shiyanlou?tab=repositories', 
+                'https://github.com/shiyanlou?after=Y3Vyc29yOnYyOpK5MjAxNy0wNi0wN1QwNjoyMToyNCswODowMM4FkpXN&tab=repositories',
+                'https://github.com/shiyanlou?after=Y3Vyc29yOnYyOpK5MjAxNS0wMS0yN1QxMToxODoxMiswODowMM4ByCsB&tab=repositories',
+                'https://github.com/shiyanlou?after=Y3Vyc29yOnYyOpK5MjAxNC0xMS0yNFQxNzowMToyNyswODowMM4BnQHM&tab=repositories'
+               )
 
     def parse(self, response):
         for repository in response.css('li.public'):
